@@ -2,14 +2,14 @@
 
 Proyecto base para construir en un solo código:
 
-- **CRM interno** para la gestión de clientas, ventas y seguimiento.
-- **Tienda virtual** pública para mostrar y vender productos de maquillaje.
+- **CRM interno** para gestión de clientas, seguimiento comercial y ventas.
+- **Tienda virtual** pública para mostrar catálogo y vender en web.
 
 ## Stack
 
 - Next.js (App Router)
 - TypeScript
-- CSS global simple (listo para migrar a Tailwind o design system)
+- CSS global simple
 
 ## Ejecutar local
 
@@ -22,30 +22,38 @@ Abrir: `http://localhost:3000`
 
 ## Estructura inicial
 
-- `app/` rutas de la web
-  - `app/page.tsx`: portada
-  - `app/crm/page.tsx`: módulo CRM inicial
+- `app/`
+  - `app/page.tsx`: portada de plataforma
+  - `app/crm/page.tsx`: KPIs + tabla de clientas
   - `app/tienda/page.tsx`: catálogo inicial
-- `data/mock.ts`: datos de ejemplo para arrancar rápido
+  - `app/layout.tsx`: layout + navegación
+- `data/mock.ts`: tipos y datos de ejemplo
 
-## Roadmap sugerido (ideal con Cursor gratuito)
+## Problemas comunes de instalación (entornos corporativos/proxy)
 
-1. **Fase 1 (MVP UI):**
-   - Completar pantallas CRM (clientes, pedidos, seguimiento).
-   - Completar tienda (detalle de producto, carrito simple).
-2. **Fase 2 (Backend):**
-   - Añadir Prisma + PostgreSQL/Supabase.
-   - Crear autenticación para panel CRM (NextAuth o Clerk).
-3. **Fase 3 (Operación):**
-   - Integrar pagos (Mercado Pago / Stripe).
-   - Integrar WhatsApp para seguimiento de clientas.
-4. **Fase 4 (Deploy):**
-   - Desplegar en Vercel.
-   - Configurar dominio final de KVmakeup.
+Si `npm install` da `403 Forbidden`:
 
-## Recomendación para Cursor Free
+1. Verifica si tienes variables de proxy forzadas (`HTTP_PROXY`, `HTTPS_PROXY`, `npm_config_http_proxy`).
+2. Prueba instalación sin esas variables:
 
-- Trabaja en tareas pequeñas y concretas (una pantalla o endpoint a la vez).
-- Reutiliza prompts con contexto corto (archivo actual + objetivo puntual).
-- Mantén una lista de tareas por sprint para no gastar solicitudes en iteraciones largas.
+```bash
+env -u npm_config_http_proxy -u npm_config_https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY npm install
+```
 
+3. Si sigue fallando, tu red está bloqueando el registry npm y necesitas:
+   - habilitar acceso a `registry.npmjs.org`, o
+   - configurar un registry interno permitido por tu empresa.
+
+## Roadmap recomendado
+
+1. **Fase 1 (UI + flujo):** clientes, pedidos, seguimiento, carrito.
+2. **Fase 2 (backend):** Prisma + PostgreSQL/Supabase.
+3. **Fase 3 (seguridad):** autenticación y roles (admin / vendedor).
+4. **Fase 4 (ventas):** pagos y automatización WhatsApp/email.
+5. **Fase 5 (deploy):** Vercel + dominio final KVmakeup.
+
+## Cursor Free: estrategia práctica
+
+- Divide en tareas pequeñas (1 pantalla o 1 endpoint por prompt).
+- Pide cambios incrementales y revisables.
+- Mantén un checklist técnico corto para no gastar tokens en contexto irrelevante.
