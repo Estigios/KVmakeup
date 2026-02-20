@@ -28,6 +28,33 @@ Abrir: `http://localhost:3000`
   - `app/tienda/page.tsx`: catálogo inicial
   - `app/layout.tsx`: layout + navegación
 - `data/mock.ts`: tipos y datos de ejemplo
+- `vercel.json`: configuración explícita para despliegue en Vercel
+
+## Despliegue en Vercel (GitHub)
+
+1. Sube este repositorio a GitHub.
+2. En Vercel, crea un proyecto nuevo y selecciona el repo.
+3. Verifica en **Project Settings → General**:
+   - **Framework Preset**: Next.js
+   - **Root Directory**: `.` (raíz del repo)
+4. Despliega.
+
+### Si aparece error 404 en Vercel
+
+Revisa estos puntos (son los más comunes):
+
+- El proyecto en Vercel apunta a otra carpeta (Root Directory incorrecto).
+- El deploy se está haciendo desde una rama sin `app/page.tsx`.
+- El repositorio importado no es este o no está actualizado.
+- Build falló y Vercel mostró un deployment previo/placeholder.
+
+Este repo ya incluye:
+
+- ruta principal `/` en `app/page.tsx`
+- layout en `app/layout.tsx`
+- configuración de Vercel en `vercel.json`
+
+Con eso, un deploy correcto en rama actual debe responder en `/` sin 404.
 
 ## Problemas comunes de instalación (entornos corporativos/proxy)
 
@@ -51,9 +78,3 @@ env -u npm_config_http_proxy -u npm_config_https_proxy -u HTTP_PROXY -u HTTPS_PR
 3. **Fase 3 (seguridad):** autenticación y roles (admin / vendedor).
 4. **Fase 4 (ventas):** pagos y automatización WhatsApp/email.
 5. **Fase 5 (deploy):** Vercel + dominio final KVmakeup.
-
-## Cursor Free: estrategia práctica
-
-- Divide en tareas pequeñas (1 pantalla o 1 endpoint por prompt).
-- Pide cambios incrementales y revisables.
-- Mantén un checklist técnico corto para no gastar tokens en contexto irrelevante.
