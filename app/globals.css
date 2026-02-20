@@ -1,0 +1,169 @@
+:root {
+  color-scheme: light;
+  --bg: #fff9fd;
+  --text: #1f1220;
+  --brand: #d63f89;
+  --brand-dark: #ad2b6a;
+  --card: #ffffff;
+  --border: #f2d8e7;
+  --muted: #7a6170;
+  --ok: #1f8f5f;
+  --warn: #c48a00;
+  --off: #8f3f3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: min(1080px, 92vw);
+  margin: 0 auto;
+}
+
+.topbar {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.topbarContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+
+.topbarContent h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navList a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+
+main.container {
+  padding: 2rem 0 3rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  background: #ffe5f1;
+  color: #8e2055;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.bulletList {
+  margin: 0.5rem 0 0;
+}
+
+.bulletList li {
+  margin-bottom: 0.3rem;
+}
+
+.metric {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  text-decoration: none;
+  color: #fff;
+  background: var(--brand);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--brand-dark);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.status {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.78rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.statusFiel {
+  color: var(--ok);
+  background: #ddf8ed;
+}
+
+.statusNuevo {
+  color: var(--warn);
+  background: #fff3d2;
+}
+
+.statusInactivo {
+  color: var(--off);
+  background: #ffe2e2;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  vertical-align: top;
+}
