@@ -1,0 +1,174 @@
+:root {
+  color-scheme: light;
+  --bg: #fcfbff;
+  --surface: #ffffff;
+  --text: #231932;
+  --muted: #6d6280;
+  --violet: #6f42c1;
+  --violet-soft: #f2ebff;
+  --border: #e6dcfb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+}
+
+.brandLink {
+  color: var(--violet);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navList a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+main.container {
+  padding: 2rem 0 3rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.lead {
+  color: var(--muted);
+  margin-top: -0.4rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(111, 66, 193, 0.06);
+}
+
+.badge {
+  display: inline-block;
+  width: fit-content;
+  border-radius: 999px;
+  background: var(--violet-soft);
+  color: var(--violet);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--violet);
+}
+
+.metric {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.btn {
+  border: 1px solid var(--violet);
+  background: var(--violet);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.55rem 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnGhost {
+  background: #fff;
+  color: var(--violet);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  vertical-align: top;
+}
+
+.formGrid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.formGrid label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+}
+
+.formGrid input,
+.formGrid select,
+.formGrid textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.62rem 0.72rem;
+  font: inherit;
+  background: #fff;
+  color: var(--text);
+}
